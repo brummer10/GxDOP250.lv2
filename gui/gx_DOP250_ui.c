@@ -8,7 +8,7 @@
 #include "lv2/lv2plug.in/ns/ext/urid/urid.h"
 #include "lv2/lv2plug.in/ns/extensions/ui/ui.h"
 
-#include "./gx_DOD250.h"
+#include "./gx_DOP250.h"
 
 struct gx_args;
 
@@ -34,17 +34,17 @@ typedef struct {
     GtkWidget* label[2];
     struct gx_args *args[2];
     GtkWidget* window;  /* For optional show interface. */
-} gx_DOD250UI;
+} gx_DOP250UI;
 
 struct gx_args {
-    gx_DOD250UI* ui;
+    gx_DOP250UI* ui;
     int port_index;
 } ;
 
 static void ref_value_changed(GtkAdjustment *adj, gpointer* args) {
 
     gx_args * arg = (gx_args*)args;
-    gx_DOD250UI* ui = (gx_DOD250UI*)arg->ui;
+    gx_DOP250UI* ui = (gx_DOP250UI*)arg->ui;
     if (ui->block) {
         ui->block = 0;
         return;
@@ -63,7 +63,7 @@ static LV2UI_Handle instantiate(const LV2UI_Descriptor*   descriptor,
             LV2UI_Widget*             widget,
             const LV2_Feature* const* features) {
 
-    gx_DOD250UI* ui = (gx_DOD250UI*)malloc(sizeof(gx_DOD250UI));
+    gx_DOP250UI* ui = (gx_DOP250UI*)malloc(sizeof(gx_DOP250UI));
     ui->write       = write_function;
     ui->controller  = controller;
     ui->block       = 0;
@@ -83,7 +83,7 @@ static LV2UI_Handle instantiate(const LV2UI_Descriptor*   descriptor,
 
     *widget = NULL;
 
-    const char* plug_name = "GxDOD250" ;
+    const char* plug_name = "GxDOP250" ;
     ui->logo = gtk_label_new(plug_name);
     GdkColor color;
     gdk_color_parse("#222222", &color);
@@ -94,7 +94,7 @@ static LV2UI_Handle instantiate(const LV2UI_Descriptor*   descriptor,
     gtk_widget_modify_font(ui->logo, style->font_desc);
 
     ui->pbox = gx_paint_box_new(GTK_ORIENTATION_VERTICAL,false, 0);
-    set_expose_func(GX_DOD250_PAINT_BOX(ui->pbox),"pedal_expose");
+    set_expose_func(GX_DOP250_PAINT_BOX(ui->pbox),"pedal_expose");
     ui->box = gtk_vbox_new(FALSE, 4);
     ui->hbox = gtk_hbox_new(TRUE, 10);
     gtk_container_set_border_width(GTK_CONTAINER(ui->hbox),35);
@@ -179,7 +179,7 @@ static LV2UI_Handle instantiate(const LV2UI_Descriptor*   descriptor,
 
 static void cleanup(LV2UI_Handle handle) {
 
-    gx_DOD250UI* ui = (gx_DOD250UI*)handle;
+    gx_DOP250UI* ui = (gx_DOP250UI*)handle;
     if (GTK_IS_WIDGET(ui->pbox)) {
         for(int i = 0;i<2;i++) {
             if (GTK_IS_WIDGET(ui->knob[i])) {
@@ -244,7 +244,7 @@ static void port_event(LV2UI_Handle handle,
                    uint32_t     format,
                    const void*  buffer) {
 
-    gx_DOD250UI* ui = (gx_DOD250UI*)handle;
+    gx_DOP250UI* ui = (gx_DOP250UI*)handle;
     if ( format == 0 ) {
         float *value = (float*)buffer;
         if (port_index == 2) {
@@ -267,7 +267,7 @@ static void port_event(LV2UI_Handle handle,
 /* Optional non-embedded UI show interface. */
 static int ui_show(LV2UI_Handle handle) {
 
-    gx_DOD250UI* ui = (gx_DOD250UI*)handle;
+    gx_DOP250UI* ui = (gx_DOP250UI*)handle;
 
     int argc = 0;
     gtk_init(&argc, NULL);
@@ -291,7 +291,7 @@ static int ui_hide(LV2UI_Handle handle) {
 /* Idle interface for optional non-embedded UI. */
 static int ui_idle(LV2UI_Handle handle) {
 
-    gx_DOD250UI* ui = (gx_DOD250UI*)handle;
+    gx_DOP250UI* ui = (gx_DOP250UI*)handle;
     if (ui->window) {
         g_main_context_iteration (NULL, true);
     }

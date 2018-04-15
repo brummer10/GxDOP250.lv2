@@ -22,8 +22,8 @@
  */
 
 
-#ifndef __DOD250_PAINT_BOX_H__
-#define __DOD250_PAINT_BOX_H__
+#ifndef __DOP250_PAINT_BOX_H__
+#define __DOP250_PAINT_BOX_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,19 +33,19 @@ extern "C" {
 
 G_BEGIN_DECLS
 
-#define GX_TYPE_DOD250_PAINT_BOX            (gx_paint_box_get_type ())
-#define GX_DOD250_PAINT_BOX(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GX_TYPE_DOD250_PAINT_BOX, GxDOD250PaintBox))
-#define GX_DOD250_PAINT_BOX_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GX_TYPE_DOD250_PAINT_BOX, GxDOD250PaintBoxClass))
-#define GX_IS_DOD250_PAINT_BOX(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GX_TYPE_DOD250_PAINT_BOX))
-#define GX_IS_DOD250_PAINT_BOX_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GX_TYPE_DOD250_PAINT_BOX))
-#define GX_DOD250_PAINT_BOX_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GX_TYPE_DOD250_PAINT_BOX, GxDOD250PaintBoxClass))
+#define GX_TYPE_DOP250_PAINT_BOX            (gx_paint_box_get_type ())
+#define GX_DOP250_PAINT_BOX(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GX_TYPE_DOP250_PAINT_BOX, GxDOP250PaintBox))
+#define GX_DOP250_PAINT_BOX_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GX_TYPE_DOP250_PAINT_BOX, GxDOP250PaintBoxClass))
+#define GX_IS_DOP250_PAINT_BOX(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GX_TYPE_DOP250_PAINT_BOX))
+#define GX_IS_DOP250_PAINT_BOX_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GX_TYPE_DOP250_PAINT_BOX))
+#define GX_DOP250_PAINT_BOX_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GX_TYPE_DOP250_PAINT_BOX, GxDOP250PaintBoxClass))
 
-typedef struct _GxDOD250PaintBox GxDOD250PaintBox;
-typedef struct _GxDOD250PaintBoxClass GxDOD250PaintBoxClass;
+typedef struct _GxDOP250PaintBox GxDOP250PaintBox;
+typedef struct _GxDOP250PaintBoxClass GxDOP250PaintBoxClass;
 
 
 
-struct _GxDOD250PaintBox {
+struct _GxDOP250PaintBox {
 	GtkBox box;
 	gchar *paint_func;
 	void (*expose_func)(GtkWidget*, GdkEventExpose*);
@@ -53,13 +53,13 @@ struct _GxDOD250PaintBox {
     GdkPixbuf *stock_image;
 };
 
-struct _GxDOD250PaintBoxClass {
+struct _GxDOP250PaintBoxClass {
 	GtkBoxClass parent_class;
 };
 
 GType gx_paint_box_get_type(void) G_GNUC_CONST;
 GtkWidget *gx_paint_box_new(GtkOrientation orientation, gboolean homogeneous, gint spacing);
-void set_expose_func(GxDOD250PaintBox *paint_box, const gchar *paint_func);
+void set_expose_func(GxDOP250PaintBox *paint_box, const gchar *paint_func);
 
 G_END_DECLS
 
@@ -67,4 +67,4 @@ G_END_DECLS
 }
 #endif
 
-#endif /* __DOD250_PAINT_BOX_H__ */
+#endif /* __DOP250_PAINT_BOX_H__ */

@@ -20,14 +20,14 @@
 @prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://guitarix.sourceforge.net/plugins/gx_DOD250_#_DOD250_>
+<http://guitarix.sourceforge.net/plugins/gx_DOP250_#_DOP250_>
     a lv2:Plugin ;
-    lv2:binary <gx_DOD250.so>  ;
-    rdfs:seeAlso <gx_DOD250.ttl> ,
+    lv2:binary <gx_DOP250.so>  ;
+    rdfs:seeAlso <gx_DOP250.ttl> ,
                  <modgui.ttl> .
 
 <default-preset>
     a <http://lv2plug.in/ns/ext/presets#Preset> ;
-    <http://lv2plug.in/ns/lv2core#appliesTo> <http://guitarix.sourceforge.net/plugins/gx_DOD250_#_DOD250_> ;
+    <http://lv2plug.in/ns/lv2core#appliesTo> <http://guitarix.sourceforge.net/plugins/gx_DOP250_#_DOP250_> ;
     <http://www.w3.org/2000/01/rdf-schema#label> "Default" ;
     <http://www.w3.org/2000/01/rdf-schema#seeAlso> <default-preset.ttl> .

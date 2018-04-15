@@ -35,13 +35,13 @@
 #endif
 
 
-#define GTK_DOD250_KNOB_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE((obj), GTK_TYPE_DOD250_KNOB, GtkDOD250KnobPrivate))
+#define GTK_DOP250_KNOB_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE((obj), GTK_TYPE_DOP250_KNOB, GtkDOP250KnobPrivate))
 
-G_DEFINE_TYPE(GtkDOD250Knob, gtk_knob, GTK_TYPE_RANGE);
+G_DEFINE_TYPE(GtkDOP250Knob, gtk_knob, GTK_TYPE_RANGE);
 
-typedef struct _GtkDOD250KnobPrivate GtkDOD250KnobPrivate;
+typedef struct _GtkDOP250KnobPrivate GtkDOP250KnobPrivate;
 
-struct _GtkDOD250KnobPrivate
+struct _GtkDOP250KnobPrivate
 {
     int knob_x;
     int knob_y;
@@ -89,7 +89,7 @@ static void knob_expose(GtkWidget *widget, int knob_x, int knob_y, GdkEventExpos
 {
     /** check resize **/
     int grow;
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(widget);
     GtkAllocation *allocation = g_new0 (GtkAllocation, 1);
     gtk_widget_get_allocation(GTK_WIDGET(widget), allocation); 
     if(allocation->width > allocation->height) {
@@ -212,7 +212,7 @@ static void knob_expose(GtkWidget *widget, int knob_x, int knob_y, GdkEventExpos
         cairo_pattern_destroy (pat);
 
     } else {
-        GtkDOD250Knob *knob = GTK_DOD250_KNOB(widget);
+        GtkDOP250Knob *knob = GTK_DOP250_KNOB(widget);
         int switch_state = (int)knobstate;
         static int sw_state = 0;
         gint rect_width  = allocation->width-2;
@@ -263,9 +263,9 @@ static void knob_expose(GtkWidget *widget, int knob_x, int knob_y, GdkEventExpos
 //----------- draw the Knob when moved
 static gboolean gtk_knob_expose (GtkWidget *widget, GdkEventExpose *event)
 {
-    g_assert(GTK_IS_DOD250_KNOB(widget));
-    GtkDOD250Knob *knob = GTK_DOD250_KNOB(widget);
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(knob);
+    g_assert(GTK_IS_DOP250_KNOB(widget));
+    GtkDOP250Knob *knob = GTK_DOP250_KNOB(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(knob);
     knob_expose(widget, priv->knob_x, priv->knob_y, event, 0);
     return TRUE;
 }
@@ -276,9 +276,9 @@ static gboolean gtk_knob_expose (GtkWidget *widget, GdkEventExpose *event)
 
 static void gtk_knob_size_request (GtkWidget *widget, GtkRequisition *requisition)
 {
-    g_assert(GTK_IS_DOD250_KNOB(widget));
-    GtkDOD250Knob *knob = GTK_DOD250_KNOB(widget);
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(knob);
+    g_assert(GTK_IS_DOP250_KNOB(widget));
+    GtkDOP250Knob *knob = GTK_DOP250_KNOB(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(knob);
     requisition->width = priv->knob_x;
     requisition->height = priv->knob_y;
 }
@@ -289,7 +289,7 @@ static void gtk_knob_size_request (GtkWidget *widget, GtkRequisition *requisitio
 
 static void gtk_knob_set_value (GtkWidget *widget, int dir_down)
 {
-    g_assert(GTK_IS_DOD250_KNOB(widget));
+    g_assert(GTK_IS_DOP250_KNOB(widget));
 
     GtkAdjustment *adj = gtk_range_get_adjustment(GTK_RANGE(widget));
 
@@ -311,7 +311,7 @@ static void gtk_knob_set_value (GtkWidget *widget, int dir_down)
 
 static gboolean gtk_knob_key_press (GtkWidget *widget, GdkEventKey *event)
 {
-    g_assert(GTK_IS_DOD250_KNOB(widget));
+    g_assert(GTK_IS_DOP250_KNOB(widget));
 
     GtkAdjustment *adj = gtk_range_get_adjustment(GTK_RANGE(widget));
     switch (event->keyval) {
@@ -347,8 +347,8 @@ static void knob_pointer_event(GtkWidget *widget, gdouble x, gdouble y, int knob
                                gboolean drag, int state)
 {
     static double last_y = 2e20;
-    GtkDOD250Knob *knob = GTK_DOD250_KNOB(widget);
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(knob);
+    GtkDOP250Knob *knob = GTK_DOP250_KNOB(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(knob);
     GtkAdjustment *adj = gtk_range_get_adjustment(GTK_RANGE(widget));
     GtkAllocation *allocation = g_new0 (GtkAllocation, 1);
     gtk_widget_get_allocation(GTK_WIDGET(widget), allocation); 
@@ -411,9 +411,9 @@ static void knob_pointer_event(GtkWidget *widget, gdouble x, gdouble y, int knob
 
 static gboolean gtk_knob_button_press (GtkWidget *widget, GdkEventButton *event)
 {
-    g_assert(GTK_IS_DOD250_KNOB(widget));
-    GtkDOD250Knob *knob = GTK_DOD250_KNOB(widget);
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(knob);
+    g_assert(GTK_IS_DOP250_KNOB(widget));
+    GtkDOP250Knob *knob = GTK_DOP250_KNOB(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(knob);
     
     switch (event->button) {
     case 1:  // left button
@@ -447,9 +447,9 @@ static gboolean gtk_knob_button_press (GtkWidget *widget, GdkEventButton *event)
 
 static gboolean gtk_knob_button_release (GtkWidget *widget, GdkEventButton *event)
 {
-    g_assert(GTK_IS_DOD250_KNOB(widget));
-    GtkDOD250Knob *knob = GTK_DOD250_KNOB(widget);
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(knob);
+    g_assert(GTK_IS_DOP250_KNOB(widget));
+    GtkDOP250Knob *knob = GTK_DOP250_KNOB(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(knob);
     priv->button_is = 0;
     if (gtk_widget_has_grab(widget))
         gtk_grab_remove(widget);
@@ -462,9 +462,9 @@ static gboolean gtk_knob_button_release (GtkWidget *widget, GdkEventButton *even
 
 static gboolean gtk_knob_pointer_motion (GtkWidget *widget, GdkEventMotion *event)
 {
-    g_assert(GTK_IS_DOD250_KNOB(widget));
-    GtkDOD250Knob *knob = GTK_DOD250_KNOB(widget);
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(knob);
+    g_assert(GTK_IS_DOP250_KNOB(widget));
+    GtkDOP250Knob *knob = GTK_DOP250_KNOB(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(knob);
     gdk_event_request_motions (event);
     
     if (gtk_widget_has_grab(widget)) {
@@ -490,8 +490,8 @@ static gboolean gtk_knob_scroll (GtkWidget *widget, GdkEventScroll *event)
 
 static gboolean gtk_knob_enter_in (GtkWidget *widget, GdkEventCrossing *event)
 {
-    GtkDOD250Knob *knob = GTK_DOD250_KNOB(widget);
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(knob);
+    GtkDOP250Knob *knob = GTK_DOP250_KNOB(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(knob);
     priv->show_value = 1;
     gtk_widget_queue_draw(widget);
     return FALSE;
@@ -504,8 +504,8 @@ static gboolean gtk_knob_enter_in (GtkWidget *widget, GdkEventCrossing *event)
 
 static gboolean gtk_knob_leave_out (GtkWidget *widget, GdkEventCrossing *event)
 {
-    GtkDOD250Knob *knob = GTK_DOD250_KNOB(widget);
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(knob);
+    GtkDOP250Knob *knob = GTK_DOP250_KNOB(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(knob);
     priv->show_value = 0;
     gtk_widget_queue_draw(widget);
     return FALSE;
@@ -518,7 +518,7 @@ static gboolean gtk_knob_leave_out (GtkWidget *widget, GdkEventCrossing *event)
 
 static void gtk_knob_destroy(GtkObject *object)
 {
-    GtkDOD250Knob *knob = GTK_DOD250_KNOB(object);
+    GtkDOP250Knob *knob = GTK_DOP250_KNOB(object);
     if (G_IS_OBJECT(knob->switch_on_image)) {
         g_object_unref(knob->switch_on_image);
     }
@@ -535,10 +535,10 @@ static void gtk_knob_destroy(GtkObject *object)
 }
 
 /****************************************************************
- ** init the GtkDOD250KnobClass
+ ** init the GtkDOP250KnobClass
  */
 
-static void gtk_knob_class_init (GtkDOD250KnobClass *klass)
+static void gtk_knob_class_init (GtkDOP250KnobClass *klass)
 {
     GObjectClass *obj_class = G_OBJECT_CLASS (klass);
 
@@ -558,17 +558,17 @@ static void gtk_knob_class_init (GtkDOD250KnobClass *klass)
     widget_class->scroll_event = gtk_knob_scroll;
     object_class->destroy = gtk_knob_destroy;
     
-    g_type_class_add_private(obj_class, sizeof (GtkDOD250KnobPrivate));
+    g_type_class_add_private(obj_class, sizeof (GtkDOP250KnobPrivate));
 }
 
 /****************************************************************
  ** init the Knob type/size
  */
 
-static void gtk_knob_init (GtkDOD250Knob *knob)
+static void gtk_knob_init (GtkDOP250Knob *knob)
 {
     GtkWidget *widget = GTK_WIDGET(knob);
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(knob);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(knob);
     priv->knob_x = 62;
     priv->knob_y = 62;
     priv->knob_step = 86;
@@ -606,9 +606,9 @@ static gboolean gtk_knob_value_changed(gpointer obj)
 
 GtkWidget *gtk_knob_new_with_adjustment(GtkAdjustment *_adjustment)
 {
-    GtkWidget *widget = GTK_WIDGET( g_object_new (GTK_TYPE_DOD250_KNOB, NULL ));
+    GtkWidget *widget = GTK_WIDGET( g_object_new (GTK_TYPE_DOP250_KNOB, NULL ));
  
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(widget);
     priv->model = 0;
 
     if (widget) {
@@ -621,9 +621,9 @@ GtkWidget *gtk_knob_new_with_adjustment(GtkAdjustment *_adjustment)
 
 GtkWidget *gtk_switch_new_with_adjustment(GtkAdjustment *_adjustment)
 {
-    GtkWidget *widget = GTK_WIDGET( g_object_new (GTK_TYPE_DOD250_KNOB, NULL ));
+    GtkWidget *widget = GTK_WIDGET( g_object_new (GTK_TYPE_DOP250_KNOB, NULL ));
  
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(widget);
     priv->model = 1;
 
     if (widget) {
@@ -636,9 +636,9 @@ GtkWidget *gtk_switch_new_with_adjustment(GtkAdjustment *_adjustment)
 
 GtkWidget *gtk_trimmpot_new_with_adjustment(GtkAdjustment *_adjustment)
 {
-    GtkWidget *widget = GTK_WIDGET( g_object_new (GTK_TYPE_DOD250_KNOB, NULL ));
+    GtkWidget *widget = GTK_WIDGET( g_object_new (GTK_TYPE_DOP250_KNOB, NULL ));
  
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(widget);
     priv->model = 2;
     priv->knob_x = 32;
     priv->knob_y = 32;
@@ -653,9 +653,9 @@ GtkWidget *gtk_trimmpot_new_with_adjustment(GtkAdjustment *_adjustment)
 
 GtkWidget *gtk_power_switch_new_with_adjustment(GtkAdjustment *_adjustment)
 {
-    GtkWidget *widget = GTK_WIDGET( g_object_new (GTK_TYPE_DOD250_KNOB, NULL ));
+    GtkWidget *widget = GTK_WIDGET( g_object_new (GTK_TYPE_DOP250_KNOB, NULL ));
  
-    GtkDOD250KnobPrivate *priv = GTK_DOD250_KNOB_GET_PRIVATE(widget);
+    GtkDOP250KnobPrivate *priv = GTK_DOP250_KNOB_GET_PRIVATE(widget);
     priv->model = 3;
     //priv->knob_x = 16;
     //priv->knob_y = 31;

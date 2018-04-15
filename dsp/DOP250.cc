@@ -1,9 +1,9 @@
-// generated from file './/DOD250.dsp' by dsp2cc:
+// generated from file './/DOP250.dsp' by dsp2cc:
 // Code generated with Faust 0.9.90 (http://faust.grame.fr)
 
 #include "diode_table.h"
 
-namespace DOD250 {
+namespace DOP250 {
 
 class Dsp: public PluginLV2 {
 private:
@@ -70,8 +70,8 @@ public:
 Dsp::Dsp()
 	: PluginLV2() {
 	version = PLUGINLV2_VERSION;
-	id = "DOD250";
-	name = N_("DOD250");
+	id = "DOP250";
+	name = N_("DOP250");
 	mono_audio = compute_static;
 	stereo_audio = 0;
 	set_samplerate = init_static;
@@ -213,4 +213,4 @@ typedef enum
 } PortIndex;
 */
 
-} // end namespace DOD250
+} // end namespace DOP250

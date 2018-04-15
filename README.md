@@ -1,13 +1,13 @@
-# GxDOD250.lv2
+# GxDOP250.lv2
 Overdrive Preamp Pedal simulation 
 
 
-![GxDOD250](https://raw.githubusercontent.com/brummer10/GxDOD250.lv2/master/GxDOD250.png)
+![GxDOP250](https://raw.githubusercontent.com/brummer10/GxDOP250.lv2/master/GxDOP250.png)
 
 
 ###### BUILD DEPENDENCY’S 
 
-the following packages are needed to build GxDOD250:
+the following packages are needed to build GxDOP250:
 
 - libc6-dev
 - libgtk2.0-dev

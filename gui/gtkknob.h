@@ -21,8 +21,8 @@
  * ----------------------------------------------------------------------------
  */
 
-#ifndef __GTK_DOD250_KNOB_H__
-#define __GTK_DOD250_KNOB_H__
+#ifndef __GTK_DOP250_KNOB_H__
+#define __GTK_DOP250_KNOB_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,24 +33,24 @@ extern "C" {
 
 G_BEGIN_DECLS
 
-#define GTK_TYPE_DOD250_KNOB          (gtk_knob_get_type())
-#define GTK_DOD250_KNOB(obj)          (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_TYPE_DOD250_KNOB, GtkDOD250Knob))
-#define GTK_IS_DOD250_KNOB(obj)       (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_TYPE_DOD250_KNOB))
-#define GTK_DOD250_KNOB_CLASS(klass)  (G_TYPE_CHECK_CLASS_CAST ((klass),  GTK_TYPE_DOD250_KNOB, GtkDOD250KnobClass))
-#define GTK_IS_DOD250_KNOB_CLASS(obj) (G_TYPE_CHECK_CLASS_TYPE ((klass),  GTK_TYPE_DOD250_KNOB))
-#define GTK_DOD250_KNOB_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_TYPE_DOD250_KNOB, GtkDOD250KnobClass))
+#define GTK_TYPE_DOP250_KNOB          (gtk_knob_get_type())
+#define GTK_DOP250_KNOB(obj)          (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_TYPE_DOP250_KNOB, GtkDOP250Knob))
+#define GTK_IS_DOP250_KNOB(obj)       (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_TYPE_DOP250_KNOB))
+#define GTK_DOP250_KNOB_CLASS(klass)  (G_TYPE_CHECK_CLASS_CAST ((klass),  GTK_TYPE_DOP250_KNOB, GtkDOP250KnobClass))
+#define GTK_IS_DOP250_KNOB_CLASS(obj) (G_TYPE_CHECK_CLASS_TYPE ((klass),  GTK_TYPE_DOP250_KNOB))
+#define GTK_DOP250_KNOB_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_TYPE_DOP250_KNOB, GtkDOP250KnobClass))
 
-typedef struct _GtkDOD250Knob GtkDOD250Knob;
-typedef struct _GtkDOD250KnobClass GtkDOD250KnobClass;
+typedef struct _GtkDOP250Knob GtkDOP250Knob;
+typedef struct _GtkDOP250KnobClass GtkDOP250KnobClass;
 
-struct _GtkDOD250Knob {
+struct _GtkDOP250Knob {
     GtkRange parent;
     GdkPixbuf *pswitch_image;
     GdkPixbuf *switch_on_image;
     GdkPixbuf *switch_off_image;
 };
 
-struct _GtkDOD250KnobClass {
+struct _GtkDOP250KnobClass {
     GtkRangeClass parent_class;
 };
 

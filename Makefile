@@ -29,7 +29,7 @@
 	endif
 
 	# set bundle name
-	NAME = gx_DOD250
+	NAME = gx_DOP250
 	BUNDLE = $(NAME).lv2
 	VER = 0.1
 	# set compile flags

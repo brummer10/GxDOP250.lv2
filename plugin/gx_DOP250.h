@@ -24,8 +24,8 @@
 
 #include <lv2.h>
 
-#define GXPLUGIN_URI "http://guitarix.sourceforge.net/plugins/gx_DOD250_"
-#define GXPLUGIN_UI_URI "http://guitarix.sourceforge.net/plugins/gx_DOD250_gui#_DOD250_"
+#define GXPLUGIN_URI "http://guitarix.sourceforge.net/plugins/gx_DOP250_"
+#define GXPLUGIN_UI_URI "http://guitarix.sourceforge.net/plugins/gx_DOP250_gui#_DOP250_"
 
 
 typedef enum

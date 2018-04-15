@@ -33,18 +33,18 @@
 	foaf:mbox <mailto:guitarix-developer@lists.sourceforge.net> ;
 	rdfs:seeAlso <http://guitarix.sourceforge.net> .
 
-<http://guitarix.sourceforge.net/plugins/gx_DOD250_>
+<http://guitarix.sourceforge.net/plugins/gx_DOP250_>
 	a doap:Project ;
 	doap:maintainer <http://guitarix.sourceforge.net#me> ;
-	doap:name "Gx_DOD250_" .
+	doap:name "Gx_DOP250_" .
 
-<http://guitarix.sourceforge.net/plugins/gx_DOD250_#_DOD250_>
+<http://guitarix.sourceforge.net/plugins/gx_DOP250_#_DOP250_>
     a lv2:Plugin ,
         lv2:DistortionPlugin ;
     doap:maintainer <http://guitarix.sourceforge.net#me> ;
-    doap:name "GxDOD250";
+    doap:name "GxDOP250";
     doap:license <http://opensource.org/licenses/isc> ;
-    lv2:project <http://guitarix.sourceforge.net/plugins/gx_DOD250_> ;
+    lv2:project <http://guitarix.sourceforge.net/plugins/gx_DOP250_> ;
     lv2:optionalFeature lv2:hardRTCapable ;
       
     lv2:minorVersion 34;

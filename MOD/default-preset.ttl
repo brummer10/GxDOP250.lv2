@@ -4,7 +4,7 @@
 
 <default-preset>
 	a pset:Preset ;
-	lv2:appliesTo <http://guitarix.sourceforge.net/plugins/gx_DOD250_#_DOD250_> ;
+	lv2:appliesTo <http://guitarix.sourceforge.net/plugins/gx_DOP250_#_DOP250_> ;
 	lv2:port [
 		lv2:symbol "BYPASS" ;
 		pset:value 1.0
