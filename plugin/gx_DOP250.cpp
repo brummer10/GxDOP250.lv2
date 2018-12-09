@@ -123,7 +123,7 @@ Gx_DOP250_::Gx_DOP250_() :
   input(NULL),
   DOP250(DOP250::plugin()),
   bypass(0),
-  bypass_(0),
+  bypass_(2),
   needs_ramp_down(false),
   needs_ramp_up(false),
   bypassed(false) {};
